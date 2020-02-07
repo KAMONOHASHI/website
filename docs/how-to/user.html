@@ -123,22 +123,22 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         
-          <!-- <a class="site-logo" href="/"><img src="/assets/images/logo_003.png" alt=""></a> -->
+          <!-- <a class="site-logo" href="https://kamonohashi.ai/"><img src="/assets/images/logo_003.png" alt=""></a> -->
         
-        <a class="site-title" href="/">KAMONOHASHI</a>
+        <a class="site-title" href="https://kamonohashi.ai/">KAMONOHASHI</a>
         <ul class="visible-links"><li class="masthead__menu-item">
               <a href="/about/" >About</a>
             </li><li class="masthead__menu-item">
               <a href="/docs/" >Docs</a>
             </li><li class="masthead__menu-item">
-              <a href="/posts/" >Posts</a>
+              <a href="/resource/" >Resource</a>
             </li><li class="masthead__menu-item">
               <a href="/contact/" >Contact</a>
             </li><li class="masthead__menu-item">
               <a href="https://twitter.com/Kamonohashi_kqi" >Twitter</a>
             </li></ul>
         <button class="greedy-nav__dropdown"  type="button">
-            <span>v1.0.1 <i class="material-icons">arrow_drop_down</i> </span>
+            <span>1.1.5 <i class="material-icons">arrow_drop_down</i> </span>
             <div class="dropdown-content">
                 <a href="/docs/supported-doc-versions" >other version</a>
             </div>         
@@ -192,6 +192,42 @@
         
 
         
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/concepts#%E7%92%B0%E5%A2%83%E6%A7%8B%E6%88%90" class="">・環境構成</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/concepts#%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E3%81%A8%E3%81%AF" class="">・テナントとは</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/concepts#%E3%83%8E%E3%83%BC%E3%83%89%E3%81%A8%E3%81%AF" class="">・ノードとは</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/concepts#%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%A8%E3%81%AF" class="">・ロールとは</a></li>
+          
+        </ul>
+        
       </li>
     
       <li>
@@ -235,6 +271,14 @@
             
             
 
+            <li><a href="/docs/install-and-update#%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%83%80%E3%82%A6%E3%83%B3" class="">・バージョンダウン</a></li>
+          
+            
+            
+
+            
+            
+
             <li><a href="/docs/install-and-update#%E5%A4%96%E9%83%A8%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%A8%E3%81%AE%E4%BA%92%E6%8F%9B%E6%80%A7" class="">・外部サービスとの互換性</a></li>
           
         </ul>
@@ -249,6 +293,26 @@
           <a href="/docs/tutorial"><span class="nav__sub-title">Tutorial</span></a>
         
 
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/tutorial/cifar-10-tensorflow" class="">・CIFAR-10(tensorflow)</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/tutorial/cifar-10-pytorch" class="">・CIFAR-10(pytroch)</a></li>
+          
+        </ul>
         
       </li>
     
@@ -352,6 +416,14 @@
             
             
 
+            <li><a href="/docs/how-to/user#%E3%83%8E%E3%83%BC%E3%83%88%E3%83%96%E3%83%83%E3%82%AF%E7%AE%A1%E7%90%86" class="">・ノートブック管理</a></li>
+          
+            
+            
+
+            
+            
+
             <li><a href="/docs/how-to/admin/" class="">Admin Guide</a></li>
           
             
@@ -416,7 +488,31 @@
             
             
 
+            <li><a href="/docs/how-to/admin/#%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8" class="">・ストレージ</a></li>
+          
+            
+            
+
+            
+            
+
             <li><a href="/docs/how-to/cli" class="">CLI Guide</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/how-to/infra" class="">Infra Guide</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/how-to/infra/#%E3%83%90%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97%E3%81%A8%E3%83%AA%E3%82%B9%E3%83%88%E3%82%A2" class="">・バックアップとリストア</a></li>
           
         </ul>
         
@@ -472,6 +568,7 @@
   <li><a href="/docs/how-to/user#学習管理">学習を実行・管理する</a></li>
   <li><a href="/docs/how-to/user#学習の確認">学習の結果を確認する</a></li>
   <li><a href="/docs/how-to/user#推論管理">推論を実行・管理する</a></li>
+  <li><a href="/docs/how-to/user#ノートブック管理">ノートブックを実行・管理する</a></li>
 </ul>
 
 <p>KAMONOHASHIの利用者の想定操作は以下です。
@@ -967,6 +1064,11 @@ KAMONOHASHIではトレーサビリティを重視しているため、一度学
       <td>学習に渡す環境変数を指定する。環境変数はコンテナ内の環境変数へ追加設定される。</td>
     </tr>
     <tr>
+      <td>結果zip圧縮</td>
+      <td>必須</td>
+      <td>学習終了後の結果ファイルをzip圧縮するかどうかを指定する。</td>
+    </tr>
+    <tr>
       <td>パーティション</td>
       <td>任意</td>
       <td>KAMONOHASHI に設定されているパーティションを設定する。例えばGPUの型番などはここから指定する。</td>
@@ -1040,7 +1142,7 @@ Tensorbardの項目からTensorboadが起動できます。
   </li>
   <li>結果ファイルを保存する
     <ul>
-      <li>/kqi/output をzip圧縮する。このファイルは学習履歴画面の添付ファイル「output.zip」からダウンロードできます。</li>
+      <li>zip圧縮を行う場合、/kqi/output をzip圧縮する。このファイルは学習履歴画面の添付ファイル「output.zip」からダウンロードできます。</li>
     </ul>
   </li>
   <li>実行結果のステータスが更新される
@@ -1074,6 +1176,7 @@ Tensorbardの項目からTensorboadが起動できます。
     </ul>
   </li>
   <li>/kqi/output に書き込まれたファイルは 学習履歴画面の「ファイル一覧」ボタンからリアルタイムに閲覧・ダウンロードできます。</li>
+  <li>/kqi/output内のあるディレクトリにおけるファイル数とディレクトリ数の上限は10,000件となっています。この件数を超えて出力されたものは、ファイル一覧での閲覧およびCLIでのダウンロードが出来なくなるため注意してください。出力ファイル数が多い場合はディレクトリを作成して分散させるなどの対応をお願いします。</li>
 </ul>
 
 <h5 id="kqigit-学習モデル">/kqi/git/ 学習モデル</h5>
@@ -1225,6 +1328,12 @@ Tensorbardの項目からTensorboadが起動できます。
       <td>不可</td>
       <td>kamonohashiが学習の制御に使用</td>
     </tr>
+    <tr>
+      <td>ZIP_FILE_CREATED</td>
+      <td><学習ごと></学習ごと></td>
+      <td>不可</td>
+      <td>kamonohashiが学習の制御に使用</td>
+    </tr>
   </tbody>
 </table>
 
@@ -1248,6 +1357,169 @@ Tensorbardの項目からTensorboadが起動できます。
   <li>コンテナ名は”inference-推論名-推論ID”となります。</li>
   <li>Tensorboardの起動は出来ません。</li>
 </ul>
+
+<h2 id="ノートブック管理">ノートブック管理</h2>
+
+<h3 id="ノートブックの概要">ノートブックの概要</h3>
+
+<p>ノートブック機能では、KAMONOHASHI上にJupyterLab環境を提供します。
+ノートブックを作成すると、KAMONOHASHIは指定されたCPU、メモリ、GPUリソースを確保しDockerコンテナを起動後、自動的にJupyterLabのインストールを行います。ユーザはこの環境を利用し、Jupyter操作を行うことができます。なおインストールされるJupyterLabのバージョンは1.0.4です。</p>
+
+<p><img src="/assets/images/notebook-jupyter.png" alt="Jupyter起動の様子" /></p>
+
+<h3 id="ノートブックの開始">ノートブックの開始</h3>
+
+<p>ノートブックは、[ノートブック管理]を選択後、画面右上のノートブック作成ボタンを選択することで作成できます。
+ノートブックの起動に必要な情報は以下の通りです。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>種類</th>
+      <th>要否</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ノートブック名</td>
+      <td>必須</td>
+      <td>ノートブックの名前。</td>
+    </tr>
+    <tr>
+      <td>CPU</td>
+      <td>必須</td>
+      <td>ノートブックが利用するCPUコア数を指定する。</td>
+    </tr>
+    <tr>
+      <td>メモリ</td>
+      <td>必須</td>
+      <td>ノートブックが利用するメモリ量(GB)を指定する。</td>
+    </tr>
+    <tr>
+      <td>GPU</td>
+      <td>必須</td>
+      <td>ノートブックが利用するGPU枚数を指定する。</td>
+    </tr>
+    <tr>
+      <td>生存期間</td>
+      <td>必須</td>
+      <td>ノートブックの生存期間(h)を指定する。立ち上げたノートブックは、生存期間終了後に自動で終了する。</td>
+    </tr>
+    <tr>
+      <td>コンテナイメージ</td>
+      <td>任意</td>
+      <td>利用するDockerレジストリ、コンテナ、タグを指定する。未指定の場合は、デフォルト値として<a href="https://hub.docker.com/r/tensorflow/tensorflow">Docker Hub</a>に公開されているtensorflow/tensorflow:1.13.1-gpu-py3が利用される。</td>
+    </tr>
+    <tr>
+      <td>モデル</td>
+      <td>任意</td>
+      <td>利用するソースコードを格納しているGitサーバ、リポジトリ、ブランチ、コミットIDを指定する。コミットIDを指定した場合はブランチの入力値は無視される。コミットIDが未指定の場合はブランチのHEADが選択される。ブランチもコミットIDも未指定の場合は、masterブランチのHEADが選択される。</td>
+    </tr>
+    <tr>
+      <td>データセット</td>
+      <td>任意</td>
+      <td>利用するデータセットを指定する。ノートブックで利用したデータセットについては、利用後の変更も可能。</td>
+    </tr>
+    <tr>
+      <td>マウントする学習</td>
+      <td>任意</td>
+      <td>学習ジョブの結果をマウントして利用する場合に指定する。複数の学習ジョブをマウント可能。</td>
+    </tr>
+    <tr>
+      <td>環境変数</td>
+      <td>任意</td>
+      <td>学習に渡す環境変数を指定する。環境変数はコンテナ内の環境変数へ追加設定される。</td>
+    </tr>
+    <tr>
+      <td>パーティション</td>
+      <td>任意</td>
+      <td>KAMONOHASHI に設定されているパーティションを設定する。例えばGPUの型番などはここから指定する。</td>
+    </tr>
+    <tr>
+      <td>メモ</td>
+      <td>任意</td>
+      <td>ノートブックに付与する任意のメモ。</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>必要な情報を入力後、実行ボタンを押下することでJupyterLabがインストールされたコンテナが起動します(初回起動時は、ノードにコンテナイメージをダウンロードする必要があるため、実行までに時間がかかります)。</p>
+
+<p>なお利用するDockerイメージには、python3およびpip3がインストールされている必要があります。
+Docker Hubで提供されている下記Dockerイメージについては、動作確認を行っています。</p>
+
+<ul>
+  <li>tensorflow/tensorflow:1.13.1-gpu-py3</li>
+  <li>pytorch/pytorch:1.1.0-cuda10.0-cudnn7.5-devel</li>
+  <li>chainer/chainer:v6.2.0-python3</li>
+</ul>
+
+<h3 id="ノートブックへのアクセス">ノートブックへのアクセス</h3>
+
+<p>起動後、ステータスがRunningとなったノートブックに対しては、画面上の”ノートブックを開く”を押下することでアクセス可能です。
+<img src="/assets/images/notebook-list.png" alt="ノートブック一覧" /></p>
+
+<p>アクセスした際にトークン入力画面が表示される場合は、しばらく待った後に再度アクセスしていただくようお願いします。
+ホームディレクトリは<code class="highlighter-rouge">/kqi</code>であり、下記ディレクトリをそれぞれの用途で利用できます。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>パス</th>
+      <th>内容</th>
+      <th>説明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>/kqi/input/</td>
+      <td>入力ファイル</td>
+      <td>指定したデータセットがダウンロードされるディレクトリ</td>
+    </tr>
+    <tr>
+      <td>/kqi/output/</td>
+      <td>出力ファイル</td>
+      <td>出力ファイルを書き出すディレクトリ。ノートブック終了・再起動後も内容が保持される</td>
+    </tr>
+    <tr>
+      <td>/kqi/git/</td>
+      <td>モデル</td>
+      <td>指定したgitリポジトリがcloneされるディレクトリ</td>
+    </tr>
+    <tr>
+      <td>/kqi/parent/</td>
+      <td>モデル</td>
+      <td>マウントする学習で指定したジョブの学習結果がマウントされるディレクトリ</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="ノートブックの終了">ノートブックの終了</h3>
+
+<p>ノートブックコンテナは、指定した生存期間が経過後、自動で終了します。
+また詳細画面の”ジョブ停止”を押下することでも終了します。
+終了の際には、<code class="highlighter-rouge">/kqi/output</code>以外のデータは削除されるため注意してください。</p>
+
+<h3 id="ノートブックの再実行">ノートブックの再実行</h3>
+
+<p>一度作成したノートブックは、再実行ボタンを押下することで、同じ条件でのコンテナ立ち上げが可能です。<code class="highlighter-rouge">/kqi/output</code>には、以前保存したデータが維持された状態です。
+また利用するデータセットに対して変更を加えた際は、その内容が<code class="highlighter-rouge">/kqi/input</code>に反映された状態で、再起動が行われます。</p>
+
+<h3 id="ノートブックの動作の流れ">ノートブックの動作の流れ</h3>
+
+<p>ノートブックの実行フローは以下のようになっています。</p>
+
+<ol>
+  <li>クラスタからリソースを確保する</li>
+  <li>リソース上にコンテナがデプロイされる</li>
+  <li>データセットが指定されていれば、データセットを<code class="highlighter-rouge">/kqi/input</code>にダウンロードする</li>
+  <li>モデルが指定されていれば、モデルを<code class="highlighter-rouge">/kqi/git/</code>に git clone する</li>
+  <li>結果保存用ディレクトリ<code class="highlighter-rouge">/kqi/output</code>を作成する</li>
+  <li>コンテナにJupyterLabをインストールする</li>
+  <li>JupyterLabへのアクセスリンクを画面上に表示する</li>
+  <li>生存期間終了後、コンテナが停止しリソースが開放される</li>
+</ol>
 
         
       </section>
@@ -1300,7 +1572,7 @@ Tensorbardの項目からTensorboadが起動できます。
     KAMONOHASHI (ロゴ) は日鉄ソリューションズ株式会社の登録商標です。 
     <br>その他、本文記載の会社名および製品名は、それぞれ各社の商標または登録商標です。 
      </div>
-  <div class="page__footer-copyright">&copy; 2019 NS Solutions Corporation. </div>
+  <div class="page__footer-copyright">&copy; 2020 NS Solutions Corporation. </div>
   <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
   <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
   <script>

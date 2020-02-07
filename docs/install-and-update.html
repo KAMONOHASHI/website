@@ -123,22 +123,22 @@
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         
-          <!-- <a class="site-logo" href="/"><img src="/assets/images/logo_003.png" alt=""></a> -->
+          <!-- <a class="site-logo" href="https://kamonohashi.ai/"><img src="/assets/images/logo_003.png" alt=""></a> -->
         
-        <a class="site-title" href="/">KAMONOHASHI</a>
+        <a class="site-title" href="https://kamonohashi.ai/">KAMONOHASHI</a>
         <ul class="visible-links"><li class="masthead__menu-item">
               <a href="/about/" >About</a>
             </li><li class="masthead__menu-item">
               <a href="/docs/" >Docs</a>
             </li><li class="masthead__menu-item">
-              <a href="/posts/" >Posts</a>
+              <a href="/resource/" >Resource</a>
             </li><li class="masthead__menu-item">
               <a href="/contact/" >Contact</a>
             </li><li class="masthead__menu-item">
               <a href="https://twitter.com/Kamonohashi_kqi" >Twitter</a>
             </li></ul>
         <button class="greedy-nav__dropdown"  type="button">
-            <span>v1.0.1 <i class="material-icons">arrow_drop_down</i> </span>
+            <span>1.1.5 <i class="material-icons">arrow_drop_down</i> </span>
             <div class="dropdown-content">
                 <a href="/docs/supported-doc-versions" >other version</a>
             </div>         
@@ -192,6 +192,42 @@
         
 
         
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/concepts#%E7%92%B0%E5%A2%83%E6%A7%8B%E6%88%90" class="">・環境構成</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/concepts#%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E3%81%A8%E3%81%AF" class="">・テナントとは</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/concepts#%E3%83%8E%E3%83%BC%E3%83%89%E3%81%A8%E3%81%AF" class="">・ノードとは</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/concepts#%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%A8%E3%81%AF" class="">・ロールとは</a></li>
+          
+        </ul>
+        
       </li>
     
       <li>
@@ -235,6 +271,14 @@
             
             
 
+            <li><a href="/docs/install-and-update#%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%83%80%E3%82%A6%E3%83%B3" class="">・バージョンダウン</a></li>
+          
+            
+            
+
+            
+            
+
             <li><a href="/docs/install-and-update#%E5%A4%96%E9%83%A8%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%A8%E3%81%AE%E4%BA%92%E6%8F%9B%E6%80%A7" class="">・外部サービスとの互換性</a></li>
           
         </ul>
@@ -249,6 +293,26 @@
           <a href="/docs/tutorial"><span class="nav__sub-title">Tutorial</span></a>
         
 
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/tutorial/cifar-10-tensorflow" class="">・CIFAR-10(tensorflow)</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/tutorial/cifar-10-pytorch" class="">・CIFAR-10(pytroch)</a></li>
+          
+        </ul>
         
       </li>
     
@@ -352,6 +416,14 @@
             
             
 
+            <li><a href="/docs/how-to/user#%E3%83%8E%E3%83%BC%E3%83%88%E3%83%96%E3%83%83%E3%82%AF%E7%AE%A1%E7%90%86" class="">・ノートブック管理</a></li>
+          
+            
+            
+
+            
+            
+
             <li><a href="/docs/how-to/admin/" class="">Admin Guide</a></li>
           
             
@@ -416,7 +488,31 @@
             
             
 
+            <li><a href="/docs/how-to/admin/#%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8" class="">・ストレージ</a></li>
+          
+            
+            
+
+            
+            
+
             <li><a href="/docs/how-to/cli" class="">CLI Guide</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/how-to/infra" class="">Infra Guide</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/how-to/infra/#%E3%83%90%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97%E3%81%A8%E3%83%AA%E3%82%B9%E3%83%88%E3%82%A2" class="">・バックアップとリストア</a></li>
           
         </ul>
         
@@ -513,7 +609,7 @@
           <td style="text-align: left">GPUサーバー</td>
           <td style="text-align: left">2 コア</td>
           <td style="text-align: left">2 GB</td>
-          <td style="text-align: left">Fermi (2.1)より後の世代のNVIDIA GPU</td>
+          <td style="text-align: left">Fermi (2.1)より後の世代のNVIDIA GPU, /var/libに1学習分のデータが入る空容量</td>
         </tr>
       </tbody>
     </table>
@@ -543,7 +639,7 @@
 <ul>
   <li>Kubernetes master用に用意したマシンにログインします</li>
   <li>root userで次を実行します
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">KQI_VERSION</span><span class="o">=</span>1.0.1
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">KQI_VERSION</span><span class="o">=</span>1.1.5 
 wget <span class="nt">-O</span> /tmp/deploy-tools-<span class="nv">$KQI_VERSION</span>.tar.gz https://github.com/KAMONOHASHI/kamonohashi/releases/download/<span class="nv">$KQI_VERSION</span>/deploy-tools-<span class="nv">$KQI_VERSION</span>.tar.gz
 <span class="nb">mkdir</span> <span class="nt">-p</span> /var/lib/kamonohashi/deploy-tools/<span class="nv">$KQI_VERSION</span>/
 <span class="nb">cd</span> /var/lib/kamonohashi/deploy-tools/<span class="nv">$KQI_VERSION</span>/
@@ -554,7 +650,9 @@ wget <span class="nt">-O</span> /tmp/deploy-tools-<span class="nv">$KQI_VERSION<
   </li>
 </ul>
 
-<p><img src="/assets/images/kqi-terminal.png" alt="ターミナル" /></p>
+<div align="center">
+<img src="/assets/images/kqi-terminal.png" alt="ターミナル" />
+</div>
 
 <p>対話形式で以下の項目の質問に答えます。[y/n]形式での質問は大文字の方がデフォルトの値です。</p>
 
@@ -600,13 +698,13 @@ wget <span class="nt">-O</span> /tmp/deploy-tools-<span class="nv">$KQI_VERSION<
     </tr>
     <tr>
       <td>KAMONOHASHIのadminパスワード</td>
-      <td>adminアカウントで使用する8文字以上のパスワードです。KAMONOHASHI Web UIログイン・DB接続、Object Storageへのログインに使用します。<br />一度構築に使用したパスワードはデプロイツールでは変更できません。パスワードを変える場合は、完全にデータを削除するか、パスワード変更手順を実施する必要があります。パスワード変更手順は[kamonohashi-support@jp.nssol.nipponsteel.com]にお問い合わせください</td>
+      <td>adminアカウントで使用する8文字以上のパスワードです。数字のみのパスワードは使用不可となっているので注意してください。KAMONOHASHI Web UIログイン・DB接続、Object Storageへのログインに使用します。<br />一度構築に使用したパスワードはデプロイツールでは変更できません。パスワードを変える場合は、完全にデータを削除するか、パスワード変更手順を実施する必要があります。パスワード変更手順は[kamonohashi-support@jp.nssol.nipponsteel.com]にお問い合わせください</td>
     </tr>
   </tbody>
 </table>
 
 <p>これでKAMONOHASHIのインストールは完了です。
-<a href="/docs/how-to/user">User Guide</a>や<a href="/docs/how-to/admin">Admin Guide</a>を参考にKAMONOHASHIを用いたAI開発を開始しましょう！</p>
+<a href="/docs/tutorial">チュートリアル</a>に進みKAMONOHASHIを用いたAI開発を開始しましょう！</p>
 
 <h3 id="カスタマイズしたクラスタの構築">カスタマイズしたクラスタの構築</h3>
 <ul>
@@ -619,13 +717,13 @@ wget <span class="nt">-O</span> /tmp/deploy-tools-<span class="nv">$KQI_VERSION<
     <ul>
       <li>このコマンドではKAMONOHASHIの内部データ(データベース, ストレージのデータ)は削除しません
         <ul>
-          <li>特に、adminパスワードも保存されたままです</li>
+          <li>adminパスワードも保存されたままです</li>
         </ul>
       </li>
       <li>再度デプロイすると過去のデータベース, ストレージの中身を引き続き使用します</li>
       <li>完全にデータを削除する場合は KAMONOHASHIノード, STORAGEノードの 2台で<code class="highlighter-rouge">/var/lib/kamonohashi</code> を削除してください
         <ul>
-          <li>特に、構築に失敗してやり直す際にパスワードも変更する場合はこのディレクトリを削除してください</li>
+          <li>構築に失敗してやり直す際にパスワードも変更する場合はこのディレクトリを削除してください</li>
         </ul>
       </li>
     </ul>
@@ -648,7 +746,7 @@ wget <span class="nt">-O</span> /tmp/deploy-tools-<span class="nv">$KQI_VERSION<
 </code></pre>
   </li>
   <li>次のコマンドを実施して新しいデプロイツール取得と設定ファイルのコピーを行います
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">KQI_VERSION</span><span class="o">=</span>1.0.1
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">KQI_VERSION</span><span class="o">=</span>1.1.5 
 wget <span class="nt">-O</span> /tmp/deploy-tools-<span class="nv">$KQI_VERSION</span>.tar.gz https://github.com/KAMONOHASHI/kamonohashi/releases/download/<span class="nv">$KQI_VERSION</span>/deploy-tools-<span class="nv">$KQI_VERSION</span>.tar.gz
 <span class="nb">mkdir</span> <span class="nt">-p</span> /var/lib/kamonohashi/deploy-tools/<span class="nv">$KQI_VERSION</span>/
 <span class="nb">cd</span> /var/lib/kamonohashi/deploy-tools/<span class="nv">$KQI_VERSION</span>/
@@ -665,9 +763,12 @@ wget <span class="nt">-O</span> /tmp/deploy-tools-<span class="nv">$KQI_VERSION<
 <h3 id="kamonohashi-webアプリのみのバージョンアップ">KAMONOHASHI Webアプリのみのバージョンアップ</h3>
 <p>デプロイツールの準備を実施後に次を実施してください</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /var/lib/kamonohashi/deploy-tools/1.0.1/kamonohashi/
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /var/lib/kamonohashi/deploy-tools/<span class="nv">$KQI_VERSION</span>/kamonohashi/
 ./deploy-kqi.sh update
 </code></pre></div></div>
+
+<p>1.1.0以前のバージョンから1.1.0以降へのアップデートを行った場合、既存のノードにはNotebook実行可否オプションが”実行しない”に設定されます。
+既存のノードでノートブック機能を利用可能とするには、システム設定のノード管理より、Notebookの実行可否オプションを”実行する”に変更してください。</p>
 
 <h3 id="k8sなども含めたインフラ全体のバージョンアップ">k8sなども含めたインフラ全体のバージョンアップ</h3>
 <p>現在デプロイツールでは古いバージョンのアンインストールと新しいバージョンのインストールによるアップグレードのみ可能です。
@@ -713,6 +814,69 @@ wget <span class="nt">-O</span> /tmp/deploy-tools-<span class="nv">$KQI_VERSION<
   </li>
 </ul>
 
+<h2 id="バージョンダウン">バージョンダウン</h2>
+
+<h3 id="kamonohashi-webアプリのバージョンダウン">KAMONOHASHI Webアプリのバージョンダウン</h3>
+
+<p>バージョンダウンは、バージョンアップ以前のデプロイツールを用いることで行います。以前に利用したデプロイツールは、k8sノードで以下のコマンドを実行することで確認できます。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ls</span> /var/lib/kamonohashi/deploy-tools/old
+</code></pre></div></div>
+
+<p>確認した中で、バージョンダウンする番号をメモし、以下のコマンドを実行します。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /var/lib/kamonohashi/deploy-tools/old/<span class="o">{</span>バージョン番号<span class="o">}</span>/kamonohashi/
+./deploy-kqi.sh update
+</code></pre></div></div>
+
+<h3 id="dbの切り戻しを含むバージョンダウン">DBの切り戻しを含むバージョンダウン</h3>
+
+<p>KAMONOHASHIのアップデートを行う際に、下記のバージョンではDBに対するマイグレーション適用が実施され、テーブル変更が行われています。そのためマイグレーション適用後のバージョンから、それ以前のバージョンに戻す際には、切り戻し用スクリプトを実行してDBの切り戻し作業を実施する必要があります(作業中はKAMONOHASHIのサービスが停止します)。
+この作業を行った場合、マイグレーション適用後にのみ存在しているテーブルおよびカラムに格納されていたデータは削除されるため注意してください。例えばv1.1.0からv1.0.3にバージョンダウンする場合は、ノートブック機能で管理していた情報は削除されます。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>version</th>
+      <th>Migration</th>
+      <th>主な変更</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>v1.0.0</td>
+      <td>20190515093033_v1.0.0</td>
+      <td>初期構築時</td>
+    </tr>
+    <tr>
+      <td>v1.1.0</td>
+      <td>20190821040509_v1.1.0</td>
+      <td>ノートブック機能用テーブル追加</td>
+    </tr>
+    <tr>
+      <td>v1.1.3</td>
+      <td>20190911075454_v1.1.3</td>
+      <td>zip機能利用履歴保持用カラム追加</td>
+    </tr>
+    <tr>
+      <td>v1.1.5</td>
+      <td>20191113041648_v1.1.5</td>
+      <td>ノートブックへのマウント学習ジョブを管理するための追加</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>1.1.5からバージョンダウンする場合の、DB切り戻しスクリプトの実行例</p>
+<ol>
+  <li><code class="highlighter-rouge">/var/lib/kamonohashi/deploy-tools/1.1.5/rollback/rollback.sh</code>を実行します。</li>
+  <li>デプロイされているKAMONOHASHIのバージョンに<code class="highlighter-rouge">1.1.5</code>、戻したい時点のMigrationファイルに<code class="highlighter-rouge">20190911075454_v1.1.3</code>を入力します。</li>
+  <li>DBの切り戻し処理が終了するまで数分間待機します。</li>
+  <li>切り戻し処理終了後、再デプロイ可能なバージョンの一覧が表示されるため、戻したいバージョンを指定します。</li>
+  <li>KAMONOHASHIのWEB画面にアクセスし、バージョン情報より、バージョンが戻っていることを確認します。</li>
+</ol>
+
+<p><img src="/assets/images/kqi-rollback.png" alt="DB切り戻し操作の様子" /></p>
+
 <h2 id="外部サービスとの互換性">外部サービスとの互換性</h2>
 
 <p>動作を確認した環境は以下の通りです。</p>
@@ -729,7 +893,7 @@ wget <span class="nt">-O</span> /tmp/deploy-tools-<span class="nv">$KQI_VERSION<
   </thead>
   <tbody>
     <tr>
-      <td>v1.0.1</td>
+      <td>v1.0.1以降</td>
       <td>11.8以降</td>
       <td>RELEASE.2019-01-23T23-18-58Z</td>
       <td>version 3</td>
@@ -799,7 +963,7 @@ wget <span class="nt">-O</span> /tmp/deploy-tools-<span class="nv">$KQI_VERSION<
     KAMONOHASHI (ロゴ) は日鉄ソリューションズ株式会社の登録商標です。 
     <br>その他、本文記載の会社名および製品名は、それぞれ各社の商標または登録商標です。 
      </div>
-  <div class="page__footer-copyright">&copy; 2019 NS Solutions Corporation. </div>
+  <div class="page__footer-copyright">&copy; 2020 NS Solutions Corporation. </div>
   <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
   <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
   <script>
