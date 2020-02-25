@@ -12,6 +12,15 @@ main:
 docs:
   - title: Concepts
     url: /docs/concepts
+    children:
+      - title: "・環境構成"
+        url: /docs/concepts#環境構成
+      - title: "・テナントとは"
+        url: /docs/concepts#テナントとは
+      - title: "・ノードとは"
+        url: /docs/concepts#ノードとは
+      - title: "・ロールとは"
+        url: /docs/concepts#ロールとは
   - title: Installation
     url: /docs/install-and-update
     children:
@@ -22,7 +31,7 @@ docs:
       - title: "・バージョンアップ"
         url: /docs/install-and-update#バージョンアップ
       - title: "・バージョンダウン"
-        url: /docs/install-and-update#DBの切り戻しを含むバージョンダウン
+        url: /docs/install-and-update#バージョンダウン
       - title: "・外部サービスとの互換性"
         url: /docs/install-and-update#外部サービスとの互換性
   - title: Tutorial
@@ -68,6 +77,8 @@ docs:
         url: /docs/how-to/admin/#リソース
       - title: "・メニュー"
         url: /docs/how-to/admin/#メニュー
+      - title: "・ストレージ"
+        url: /docs/how-to/admin/#ストレージ
       - title: "CLI Guide"
         url: /docs/how-to/cli
       - title: "Infra Guide"
@@ -80,11 +91,13 @@ tutorials:
     children:
       - title: "Training a model on CIFAR-10 Using KAMONOHASHI"
         url: /tutorial/cifar10
-resource:
-  - title: Slide Share
+resource: 
+  - title: slide share
     url: /resource/#Slide Share
   - title: Flyer
     url: /resource/#flyer
+  - title: logo
+    url: /resource/#logo
 faq:
   - title: faq
     url: /docs/faq

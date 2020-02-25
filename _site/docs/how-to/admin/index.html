@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.14.1 by Michael Rose
-  Copyright 2013-2018 Michael Rose - mademistakes.com | @mmistakes
+  Minimal Mistakes Jekyll Theme 4.14.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
 -->
@@ -42,7 +42,7 @@
 
   <script type="application/ld+json">
     {
-      "@context": "http://schema.org",
+      "@context": "https://schema.org",
       "@type": "Organization",
       "url": "http://localhost:4000",
       "logo": "http://localhost:4000/assets/images/logo_002.png"
@@ -173,6 +173,7 @@
       
       
       
+      
     
     
       
@@ -191,6 +192,42 @@
           <a href="/docs/concepts"><span class="nav__sub-title">Concepts</span></a>
         
 
+        
+        <ul>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/concepts#%E7%92%B0%E5%A2%83%E6%A7%8B%E6%88%90" class="">・環境構成</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/concepts#%E3%83%86%E3%83%8A%E3%83%B3%E3%83%88%E3%81%A8%E3%81%AF" class="">・テナントとは</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/concepts#%E3%83%8E%E3%83%BC%E3%83%89%E3%81%A8%E3%81%AF" class="">・ノードとは</a></li>
+          
+            
+            
+
+            
+            
+
+            <li><a href="/docs/concepts#%E3%83%AD%E3%83%BC%E3%83%AB%E3%81%A8%E3%81%AF" class="">・ロールとは</a></li>
+          
+        </ul>
         
       </li>
     
@@ -235,7 +272,7 @@
             
             
 
-            <li><a href="/docs/install-and-update#DB%E3%81%AE%E5%88%87%E3%82%8A%E6%88%BB%E3%81%97%E3%82%92%E5%90%AB%E3%82%80%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%83%80%E3%82%A6%E3%83%B3" class="">・バージョンダウン</a></li>
+            <li><a href="/docs/install-and-update#%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%83%80%E3%82%A6%E3%83%B3" class="">・バージョンダウン</a></li>
           
             
             
@@ -432,6 +469,14 @@
             
             
 
+            <li><a href="/docs/how-to/admin/#%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8" class="">・ストレージ</a></li>
+          
+            
+            
+
+            
+            
+
             <li><a href="/docs/how-to/cli" class="">CLI Guide</a></li>
           
             
@@ -461,7 +506,7 @@
   </div>
 
 
-  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Admin Guide">
     
     
@@ -1250,6 +1295,27 @@ gpu2
   <li>全ての変更が完了したら、右下の「更新」ボタンを選択する</li>
 </ol>
 
+<h2 id="ストレージ">ストレージ</h2>
+<p>学習に使用するデータや学習結果を保存するためにストレージが必要です。</p>
+
+<h3 id="ストレージの編集">ストレージの編集</h3>
+<p>KAMONOHASHIに登録しているストレージの情報を変更します。
+KAMONOHASHIのWeb画面上での作業および再デプロイに備えてKubernetes masterノード上での作業が必要となります。</p>
+
+<h4 id="kamonohashiのweb画面上での作業-1">KAMONOHASHIのWeb画面上での作業</h4>
+<ol>
+  <li>ブラウザからkamonohashiにアクセス</li>
+  <li>管理権限を持つユーザでログイン</li>
+  <li>[システム管理] → [ストレージ管理]を選択し、ストレージ一覧画面を表示する</li>
+  <li>編集したいストレージ情報を選択する</li>
+  <li>ストレージ編集画面にて編集し、右下の「保存」ボタンを押下する</li>
+</ol>
+
+<h4 id="kubernetes-masterノード上での作業-1">Kubernetes masterノード上での作業</h4>
+<ol>
+  <li>Kubernetes masterノードにssh</li>
+  <li><code class="highlighter-rouge">/var/lib/kamonohashi/deploy-tools/{バージョン番号}/kamonohashi/conf/settings.yml</code> を開き、appsettingsのDeployOptionsを編集し保存する</li>
+</ol>
 
         
       </section>
@@ -1273,6 +1339,7 @@ gpu2
   
   
 </div>
+
     </div>
 
     
@@ -1330,7 +1397,7 @@ gpu2
 
     
   <script src="/assets/js/main.min.js"></script>
-  <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.6.0/js/all.js" integrity="sha384-z9ZOvGHHo21RqN5De4rfJMoAxYpaVoiYhuJXPyVmSs8yn20IE3PmBM534CffwSJI" crossorigin="anonymous"></script>
 
 
 
