@@ -1,6 +1,0 @@
-[build]
-  publish = "_site"
-  command = "bundle exec jekyll serve"
-
-[build.environment]
-  FRONT_API_URL="https://v1-1-6.kamonohashi.ai/"

@@ -1,0 +1,27 @@
+{
+  "name": "website",
+  "version": "1.1.6",
+  "description": "このリポジトリは、[KAMONOHASHIのWebサイトとドキュメント](https://kamonohashi.ai/)のソースコードです。",
+  "main": "hello.js",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "netlify-lambda": "^1.6.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "netlify-lambda build src/version",
+    "lambda": "netlify-lambda serve src/version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KAMONOHASHI/website.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/KAMONOHASHI/website/issues"
+  },
+  "homepage": "https://github.com/KAMONOHASHI/website#readme"
+}
