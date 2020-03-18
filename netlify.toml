@@ -3,4 +3,4 @@
   command = "bundle exec jekyll build"
 
 [build.environment]
-  FRONT_API_URL="https://kamonohashi.ai/"
+  FRONT_API_URL="https://v1-1-7.kamonohashi.ai/"
