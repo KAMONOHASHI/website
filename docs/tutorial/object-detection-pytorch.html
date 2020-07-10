@@ -569,9 +569,8 @@
 <ol>
   <li>データをアップロードする</li>
   <li>データセットを作成する</li>
-  <li>学習を実行する</li>
-  <li>TensorBoardで学習の状況を表示する</li>
-  <li>学習のログを確認する</li>
+  <li>ノートブックを作成し、JupyterLabを起動する</li>
+  <li>人物検出のモデル学習・推論を行う</li>
 </ol>
 
 <h2 id="データをアップロードする">データをアップロードする</h2>
@@ -635,11 +634,15 @@ Penn-Fudanは、歩行者の検出に使用される画像データベースで�
 </table>
 
 <p>上記の情報を入力し、右下の登録ボタンを押すとデータをアップロードすることができます。
-コマンドラインインターフェイス（<a href="/docs/how-to/cli/">CLI</a>）を使用してデータをアップロードすることも可能です。</p>
+今回は、下記データ名でデータを登録することとします。</p>
 
-<p>KAMONOHASHIでは、複数のファイルを一つのデータとして管理可能です。</p>
+<ul>
+  <li>PNGImages: PNGImages内に含まれる170枚の画像を登録します</li>
+  <li>PedMasks: PedMasks内に含まれる170枚の画像を登録します。</li>
+</ul>
 
-<p>登録したデータは、データの一覧画面で確認できます。</p>
+<p>登録したデータは、データの一覧画面で確認できます。
+なおコマンドラインインターフェイス（<a href="/docs/how-to/cli/">CLI</a>）を使用してデータをアップロードすることも可能です。</p>
 
 <p><img src="/assets/images/coco-data.png" alt="データ一覧" /></p>
 
@@ -733,7 +736,7 @@ Penn-Fudanは、歩行者の検出に使用される画像データベースで�
 
 <ul>
   <li>データセット
-KAMONOHASHI上で登録したデータセットを選択できます。</li>
+上記で登録したデータセットを選択します。</li>
 </ul>
 
 <h3 id="step4">step4</h3>
@@ -745,24 +748,49 @@ KAMONOHASHI上で登録したデータセットを選択できます。</li>
 <p>notebook見本は<a href="https://github.com/KAMONOHASHI/tutorial/blob/master/pytorch/pedestrian-detection.ipynb">GitHub</a>から確認できます。</p>
 
 <h3 id="前準備">前準備</h3>
-<p>shellにてをPythonAPIをインストールします。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Install pycocotools
+<p>shell機能を利用し下記コマンドを実行することで、本機能で用いるファイルの準備を行います。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /kqi/output
+
+# Install pycocotools
 git clone https://github.com/cocodataset/cocoapi.git
+git checkout 8c9bcc3cf640524c4c20a9c40e89cb6a2f2fa0e9
 cd cocoapi/PythonAPI
+pip install Cython
 python setup.py build_ext install
+make
+
+# Download TorchVision repo to use some files from
+# references/detection
+git clone https://github.com/pytorch/vision.git
+cd vision
+git checkout v0.3.0
+
+cp references/detection/utils.py ../
+cp references/detection/transforms.py ../
+cp references/detection/coco_eval.py ../
+cp references/detection/engine.py ../
+cp references/detection/coco_utils.py ../
 </code></pre></div></div>
-<p><img src="/assets/images/coco-shell.PNG" alt="coco-shell" />
-エラーが出た場合は各種エラー文に従ってCythonなど不足しているツールをインストールします。
-<a href="https://github.com/cocodataset/cocoapi/issues/141#issuecomment-386606299">参考</a></p>
+
+<p><img src="/assets/images/coco-shell.PNG" alt="coco-shell" /></p>
+
+<h3 id="ノートブックを作成する">ノートブックを作成する</h3>
+<p>ノートブックを開くボタンを押下し、ノートブック画面にアクセスします。
+LauncherからNotebookのPython3を選択し、新規ノートブックを作成します。</p>
 
 <h3 id="データの確認を行う">データの確認を行う</h3>
 <p>KAMONOHASHIにアップロードしたデータの確認を行います。
 データは/kqi/input配下にあります。</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from PIL import Image
-Image.open('../input/training/PNGImagesを入れたデータセット番号/FudanPed00001.png')
+Image.open('/kqi/input/training/PNGImagesを入れたデータID/FudanPed00001.png')
 </code></pre></div></div>
 <h3 id="データセットの定義をする">データセットの定義をする</h3>
+
+<p>今回利用するAPIが格納されたディレクトリに移動します。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /kqi/output/cocoapi/PythonAPI
+</code></pre></div></div>
 
 <p>データセットの定義をします。</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import os
@@ -777,13 +805,13 @@ class PennFudanDataset(torch.utils.data.Dataset):
         self.transforms = transforms
         # load all image files, sorting them to
         # ensure that they are aligned
-        self.imgs = list(sorted(os.listdir(os.path.join(root, "PNGImagesを入れたデータセット番号"))))
-        self.masks = list(sorted(os.listdir(os.path.join(root, "PedMasksを入れたデータセット番号"))))
+        self.imgs = list(sorted(os.listdir(os.path.join(root, "PNGImagesを入れたデータID"))))
+        self.masks = list(sorted(os.listdir(os.path.join(root, "PedMasksを入れたデータID"))))
 
     def __getitem__(self, idx):
         # load images ad masks
-        img_path = os.path.join(self.root, "PNGImagesを入れたデータセット番号", self.imgs[idx])
-        mask_path = os.path.join(self.root, "PedMasksを入れたデータセット番号", self.masks[idx])
+        img_path = os.path.join(self.root, "PNGImagesを入れたデータID", self.imgs[idx])
+        mask_path = os.path.join(self.root, "PedMasksを入れたデータID", self.masks[idx])
         img = Image.open(img_path).convert("RGB")
         # note that we haven't converted the mask to RGB,
         # because each color corresponds to a different instance
@@ -867,26 +895,9 @@ dataset[0]
 
 <h3 id="学習を行う">学習を行う</h3>
 
-<h4 id="shellでの操作">shellでの操作</h4>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Download TorchVision repo to use some files from
-# references/detection
-git clone https://github.com/pytorch/vision.git
-cd vision
-git checkout v0.3.0
-
-cp references/detection/utils.py ../
-cp references/detection/transforms.py ../
-cp references/detection/coco_eval.py ../
-cp references/detection/engine.py ../
-cp references/detection/coco_utils.py ../
-</code></pre></div></div>
-<p>コピーしたファイルが<code class="highlighter-rouge">/kqi/output/cocoapi/PythonAPI</code>にあることを確認します。</p>
-
 <h4 id="notebookでの操作">notebookでの操作</h4>
 
 <p>data augmentationや変換するための補助関数を定義します。</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /kqi/output/cocoapi/PythonAPI
-</code></pre></div></div>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from engine import train_one_epoch, evaluate
 import utils
 import transforms as T
@@ -902,7 +913,6 @@ def get_transform(train):
         transforms.append(T.RandomHorizontalFlip(0.5))
     return T.Compose(transforms)
 </code></pre></div></div>
-<p>エラーが出る場合はエラー文に沿って必要なツールをインストールしたりコマンドをたたきます。</p>
 
 <p>trainやevaluateに渡す DataLoaderを作成します。</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># use our dataset and defined transformations
