@@ -137,7 +137,7 @@
               <a href="/docs/faq/" >FAQ</a>
             </li></ul>
         <button class="greedy-nav__dropdown"  type="button">
-            <span>2.1.0 <i class="material-icons">arrow_drop_down</i> </span>
+            <span>2.1.1 <i class="material-icons">arrow_drop_down</i> </span>
             <div class="dropdown-content">
                 <a href="/docs/supported-doc-versions" >other version</a>
             </div>         
@@ -594,10 +594,43 @@ ${NFS}
   </tbody>
 </table>
 
+<h2 id="自動構築のオブジェクトストレージではなく既存のものを使用する">自動構築のオブジェクトストレージではなく既存のものを使用する</h2>
+<ul>
+  <li>オブジェクトストレージとNFSは同期されている必要があります。<br />
+NFSに書き込んだファイルはオブジェクトストレージからアクセスできる必要があります。逆も同様です。</li>
+</ul>
+
+<p>次の設定ファイル編集を行います</p>
+
+<h4 id="1-deepopsconfiginventryのkube-nodeの項目からオブジェクトストレージに指定したマシンを削除します">1. <code class="highlighter-rouge">deepops/config/inventry</code>のkube-nodeの項目からオブジェクトストレージに指定したマシンを削除します</h4>
+<ul>
+  <li>編集前
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[kube-node]
+gpu-node1
+object-storage
+gpu-node2
+</code></pre></div>    </div>
+  </li>
+  <li>編集後
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[kube-node]
+gpu-node1
+gpu-node2
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h4 id="2--kamonohashiconfsettingsymlのminio_deployをfalseに指定します">2.  <code class="highlighter-rouge">kamonohashi/conf/settings.yml</code>の<code class="highlighter-rouge">minio_deploy</code>を<code class="highlighter-rouge">false</code>に指定します</h4>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">minio_deploy</span><span class="pi">:</span> <span class="no">false</span>
+</code></pre></div></div>
+
+<h4 id="3-構築完了後kamonohashiのweb画面のストレージ設定画面からオブジェクトストレージの設定を変更します">3. 構築完了後、kamonohashiのweb画面のストレージ設定画面から、オブジェクトストレージの設定を変更します</h4>
+
 <h2 id="insecure-registryを設定する">insecure-registryを設定する</h2>
 <p><code class="highlighter-rouge">deepops/config/group_vars/k8s-cluster.yml</code>に次の記述を追記します</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker_insecure_registries: ["&lt;host名:ポート&gt;"]
 </code></pre></div></div>
+
 
         
       </section>

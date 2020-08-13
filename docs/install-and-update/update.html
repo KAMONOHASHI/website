@@ -137,7 +137,7 @@
               <a href="/docs/faq/" >FAQ</a>
             </li></ul>
         <button class="greedy-nav__dropdown"  type="button">
-            <span>2.1.0 <i class="material-icons">arrow_drop_down</i> </span>
+            <span>2.1.1 <i class="material-icons">arrow_drop_down</i> </span>
             <div class="dropdown-content">
                 <a href="/docs/supported-doc-versions" >other version</a>
             </div>         
@@ -608,12 +608,16 @@ git checkout tags/&lt;デプロイツールバージョン&gt;
 <ul>
   <li>詳細はインストールの項目を参照</li>
   <li>パスワードは初期構築時と同じものを指定してください</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git fetch --tags
+  <li>deepopsの設定ファイルの互換性が無くなっている場合があるため、設定ファイルの再作成が必要です
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git fetch --tags
 git checkout --recurse-submodules tags/&lt;バージョン&gt;
+./deploy-kamonohashi.sh prepare
+./deploy-kamonohashi.sh configure &lt;cluster/single-node&gt;
+# カスタマイズする場合は設定ファイルを編集
 ./deploy-kamonohashi.sh deploy all
-</code></pre></div></div>
+</code></pre></div>    </div>
+  </li>
+</ul>
 
 <h2 id="バージョンダウン">バージョンダウン</h2>
 <h3 id="dbの切り戻しを含むバージョンダウン">DBの切り戻しを含むバージョンダウン</h3>

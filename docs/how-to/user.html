@@ -137,7 +137,7 @@
               <a href="/docs/faq/" >FAQ</a>
             </li></ul>
         <button class="greedy-nav__dropdown"  type="button">
-            <span>2.1.0 <i class="material-icons">arrow_drop_down</i> </span>
+            <span>2.1.1 <i class="material-icons">arrow_drop_down</i> </span>
             <div class="dropdown-content">
                 <a href="/docs/supported-doc-versions" >other version</a>
             </div>         
@@ -1122,7 +1122,8 @@ KAMONOHASHIではトレーサビリティを重視しているため、一度学
 <h4 id="tensorboard-の起動">TensorBoard の起動</h4>
 <p>学習を実行しているコンテナの TensorBoard を表示したい場合、[学習管理]の画面で該当学習を選択します。
 TensorBoardの項目から起動ボタンを押下することで、指定した期間の間Tensorboadが起動できます。
-ただし、TensorBoard に読み込ませるログデータが、学習の結果ファイルとして出力されている必要があります。</p>
+また追加表示する学習結果の項目に他の学習結果を指定することで、複数の学習結果をTensorboardで表示することができます。
+ただしそれぞれの学習について、学習の結果ファイルとしてTensorBoardに読み込ませるログデータが出力されている必要があります。</p>
 
 <h4 id="学習の停止">学習の停止</h4>
 <p>学習を停止したい場合、[学習管理]の画面で該当学習を選択します。操作の項目にある学習停止ボタンから学習を停止することができます。
@@ -1463,6 +1464,16 @@ TensorBoardの項目から起動ボタンを押下することで、指定した
       <td>利用するソースコードを格納しているGitサーバ、リポジトリ、ブランチ、コミットIDを指定する。コミットIDを指定した場合はブランチの入力値は無視される。コミットIDが未指定の場合はブランチのHEADが選択される。ブランチもコミットIDも未指定の場合は、masterブランチのHEADが選択される。</td>
     </tr>
     <tr>
+      <td>マウントする学習</td>
+      <td>任意</td>
+      <td>ノートブックコンテナにマウントする学習結果を指定する。指定した学習結果が/kqi/parentにマウントされる。</td>
+    </tr>
+    <tr>
+      <td>マウントする推論</td>
+      <td>任意</td>
+      <td>ノートブックコンテナにマウントする推論結果を指定する。指定した推論結果が/kqi/inferenceにマウントされる。</td>
+    </tr>
+    <tr>
       <td>データセット</td>
       <td>任意</td>
       <td>利用するデータセットを指定する。ノートブックで利用したデータセットについては、利用後の変更も可能です。</td>
@@ -1539,6 +1550,11 @@ Docker Hubで提供されている下記Dockerイメージについては、動�
       <td>/parent/</td>
       <td>モデル</td>
       <td>/kqi/parentへのシンボリックリンクであり、マウントする学習で指定したジョブの学習結果がマウントされるディレクトリ</td>
+    </tr>
+    <tr>
+      <td>/inference/</td>
+      <td>モデル</td>
+      <td>/kqi/inferenceへのシンボリックリンクであり、マウントする推論で指定したジョブの学習結果がマウントされるディレクトリ</td>
     </tr>
   </tbody>
 </table>
