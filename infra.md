@@ -13,8 +13,21 @@ sidebar:
 ## 概要
 
 KAMONOHASHI のシステム運用について以下を説明します。
+* [認証情報の更新](/docs/how-to/infra/#証明書更新)
 * [バックアップとリストア](/docs/how-to/infra/#バックアップとリストア)
 * [認証情報の更新](/docs/how-to/infra/#認証情報の更新)
+
+## 証明書更新
+KAMONOHASHIの利用するKubernetesの証明書は1年で期限が切れるため、次の更新手順を1年ごとに実行する必要があります。
+
+* k8s master node上のrootユーザーで```kubeadm certs renew all```
+* 一般ユーザーで```sudo cp /etc/kubernetes/admin.conf ~/.kube/config```
+* k8s masterを再起動
+* ```kubectl get csr -o name | xargs -I {} kubectl certificate approve {}```
+* 全nodeを再起動
+
+なお、上記手順はKAMONOHASHI v4以降のKubernetesでのみ可能あり、それ未満の場合はバージョンアップが必要です。
+
 
 
 ## バックアップとリストア
