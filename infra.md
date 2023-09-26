@@ -182,3 +182,18 @@ cd /var/lib/kamonohashi/deploy-tools
 * 「新しいStorage Secret Keyを入力」と表示されるため、新たに設定するパスワードを入力してください。
 * 新たに設定したパスワードを、KAMONOHASHI のストレージ管理画面から該当ストレージの「シークレットキー」を更新してください。
 
+## アプリの設定
+### リソース管理画面でkubernetesの管理系のコンテナが表示される場合
+
+システム設定メニューのリソース管理画面で、ユーザー等の情報がUnknown等になっているコンテナが表示される場合があります。
+kubernetesで使用している管理系のコンテナ等が表示されてしまっている場合、このような現象が発生します。
+これらのコンテナを表示しないようにしたい場合は、以下の設定を行ってください。
+
+- kamonohashi/conf/settings.yml の appsettings に次の設定を記載してください。
+```
+appsettings:
+  --- 省略 ---
+  ContainerManageOptions__IgnoreNamespaces: "gpu-operator,node-feature-discovery"
+```
+- `./deploy-kamonohashi clean app && ./deploy-kamonohashi deploy app` を実行し、KAMONOHASHIのアプリを再起動してください。
+  - この再起動ではKAMONOHASHIのアプリのコンテナだけが再起動され、クラスタの情報は更新されません。
