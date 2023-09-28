@@ -72,6 +72,15 @@ kube_feature_gates:
         - "LegacyServiceAccountTokenNoAutoGeneration=False"
 ```
 
+### アプリの設定の変更
+
+- kamonohashi/conf/settings.yml を開き、appsettingsの ContainerManageOptions__IgnoreNamespacesを次のように設定します。
+```
+appsettings:
+        --- 省略 ---
+        ContainerManageOptions__IgnoreNamespaces: "gpu-operator,node-feature-discovery"
+```
+
 ### 構築の実施
 
 - 構築用ユーザで次の構築コマンドを実行します
