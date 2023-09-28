@@ -78,8 +78,8 @@ KAMONOHASHI のクラスタは次の 4 種類のサーバで構成されます
 - kamonohashi/conf/settings.yml を開き、appsettingsの ContainerManageOptions__IgnoreNamespacesを次のように設定します。
 ```
 appsettings:
-  --- 省略 ---
-  ContainerManageOptions__IgnoreNamespaces: "gpu-operator,node-feature-discovery"
+        --- 省略 ---
+        ContainerManageOptions__IgnoreNamespaces: "gpu-operator,node-feature-discovery"
 ```
 
 ## デプロイの実行

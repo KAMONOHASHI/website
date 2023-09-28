@@ -194,8 +194,8 @@ kubernetesで使用している管理系のコンテナ等が表示されてし�
   - 複数設定したい場合は、下のようにカンマ区切りで設定してください。
 ```
 appsettings:
-  --- 省略 ---
-  ContainerManageOptions__IgnoreNamespaces: "gpu-operator,node-feature-discovery"
+        --- 省略 ---
+        ContainerManageOptions__IgnoreNamespaces: "gpu-operator,node-feature-discovery"
 ```
 - `./deploy-kamonohashi clean app && ./deploy-kamonohashi deploy app` を実行し、KAMONOHASHIのアプリを再起動してください。
   - この再起動ではKAMONOHASHIのアプリとデータベースのコンテナだけが再起動され、クラスタの情報は更新されません。

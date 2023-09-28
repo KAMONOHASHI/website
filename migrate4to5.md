@@ -77,8 +77,8 @@ kube_feature_gates:
 - kamonohashi/conf/settings.yml を開き、appsettingsの ContainerManageOptions__IgnoreNamespacesを次のように設定します。
 ```
 appsettings:
-  --- 省略 ---
-  ContainerManageOptions__IgnoreNamespaces: "gpu-operator,node-feature-discovery"
+        --- 省略 ---
+        ContainerManageOptions__IgnoreNamespaces: "gpu-operator,node-feature-discovery"
 ```
 
 ### 構築の実施
