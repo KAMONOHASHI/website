@@ -16,6 +16,7 @@ KAMONOHASHI のシステム運用について以下を説明します。
 * [認証情報の更新](/docs/how-to/infra/#証明書更新)
 * [バックアップとリストア](/docs/how-to/infra/#バックアップとリストア)
 * [認証情報の更新](/docs/how-to/infra/#認証情報の更新)
+* [アプリの設定](/docs/how-to/infra/#アプリの設定)
 
 ## 証明書更新
 KAMONOHASHIの利用するKubernetesの証明書は1年で期限が切れるため、次の更新手順を1年ごとに実行する必要があります。
@@ -183,17 +184,18 @@ cd /var/lib/kamonohashi/deploy-tools
 * 新たに設定したパスワードを、KAMONOHASHI のストレージ管理画面から該当ストレージの「シークレットキー」を更新してください。
 
 ## アプリの設定
-### リソース管理画面でkubernetesの管理系のコンテナが表示される場合
+### リソース管理画面でkubernetesの管理系のコンテナなどを非表示にしたい場合
 
 システム設定メニューのリソース管理画面で、ユーザー等の情報がUnknown等になっているコンテナが表示される場合があります。
 kubernetesで使用している管理系のコンテナ等が表示されてしまっている場合、このような現象が発生します。
-これらのコンテナを表示しないようにしたい場合は、以下の設定を行ってください。
+これらのコンテナを表示しないようにしたい場合は、以下の手順で設定を行ってください。
 
-- kamonohashi/conf/settings.yml の appsettings に次の設定を記載してください。
+- /var/lib/kamonohashi/deploy-tools/kamonohashi/conf/settings.yml を開き、appsettingsの ContainerManageOptions__IgnoreNamespacesに非表示にしたいコンテナが所属しているネームスペースを指定してください。
+  - 複数設定したい場合は、下のようにカンマ区切りで設定してください。
 ```
 appsettings:
   --- 省略 ---
   ContainerManageOptions__IgnoreNamespaces: "gpu-operator,node-feature-discovery"
 ```
 - `./deploy-kamonohashi clean app && ./deploy-kamonohashi deploy app` を実行し、KAMONOHASHIのアプリを再起動してください。
-  - この再起動ではKAMONOHASHIのアプリのコンテナだけが再起動され、クラスタの情報は更新されません。
+  - この再起動ではKAMONOHASHIのアプリとデータベースのコンテナだけが再起動され、クラスタの情報は更新されません。
