@@ -47,6 +47,15 @@ sidebar:
 設定内容をカスタマイズする場合は次を参照し、設定ファイルの編集を行ってください。
 [カスタマイズ設定ガイド](/docs/install-and-update/customize-4x)
 
+## アプリの設定の変更
+
+- kamonohashi/conf/settings.yml を開き、appsettingsの ContainerManageOptions__IgnoreNamespacesを次のように設定します。
+```
+appsettings:
+        --- 省略 ---
+        ContainerManageOptions__IgnoreNamespaces: "gpu-operator,node-feature-discovery"
+```
+
 ## デプロイの実行
 
 `./deploy-kamonohashi.sh deploy all`を実行します。
