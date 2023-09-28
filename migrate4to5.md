@@ -72,7 +72,7 @@ kube_feature_gates:
         - "LegacyServiceAccountTokenNoAutoGeneration=False"
 ```
 
-## アプリの設定の変更
+### アプリの設定の変更
 
 - kamonohashi/conf/settings.yml を開き、appsettingsの ContainerManageOptions__IgnoreNamespacesを次のように設定します。
 ```
